@@ -1,1 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/rinha
+    password: postgres
+    username: postgres
 
+server:
+  port: ${API_PORT:8080}
