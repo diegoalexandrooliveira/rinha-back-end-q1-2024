@@ -15,3 +15,4 @@ CREATE TABLE transacao (
                          CONSTRAINT fk_cliente FOREIGN KEY (cliente_id) REFERENCES cliente(id)
 );
 
+CREATE SEQUENCE transacao_sequence INCREMENT BY 100 NO CYCLE;
