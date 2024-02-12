@@ -31,7 +31,7 @@ public class TransacaoController {
             @PathVariable("cliente_id") Long clienteId,
             @Valid @RequestBody NovaTransacaoRequestDTO requisicao
     ) {
-        log.info("Recebendo requisição para cliente {}. {}", clienteId, requisicao);
+        log.info("Recebendo uma nova transação para o cliente {}. {}", clienteId, requisicao);
         Cliente cliente = service.processar(requisicao, clienteId);
         return ResponseEntity.ok(new NovaTransacaoResponseDTO(cliente.getLimite(), cliente.getSaldo()));
     }

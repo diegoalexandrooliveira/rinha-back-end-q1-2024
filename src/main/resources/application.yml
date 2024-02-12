@@ -1,10 +1,10 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/rinha
-    password: postgres
-    username: postgres
+    url: ${JDBC_URL:jdbc:postgresql://localhost:5432/rinha}
+    password: ${DB_PASSWORD:postgres}
+    username: ${DB_USERNAME:postgres}
   jpa:
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
         order_updates: true

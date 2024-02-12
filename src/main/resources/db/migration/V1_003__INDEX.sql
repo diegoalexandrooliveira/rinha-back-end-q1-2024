@@ -1,0 +1,1 @@
+CREATE INDEX transacao_idx ON transacao(cliente_id, realizada_em DESC);
