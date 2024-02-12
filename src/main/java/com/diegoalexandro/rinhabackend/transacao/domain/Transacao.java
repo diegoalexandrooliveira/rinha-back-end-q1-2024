@@ -1,7 +1,6 @@
 package com.diegoalexandro.rinhabackend.transacao.domain;
 
-import com.diegoalexandro.rinhabackend.cliente.domain.Cliente;
-import com.diegoalexandro.rinhabackend.transacao.dto.TransacaoRequestDTO;
+import com.diegoalexandro.rinhabackend.transacao.dto.NovaTransacaoRequestDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import org.hibernate.annotations.CreationTimestamp;
@@ -37,7 +36,7 @@ public class Transacao {
     @Column(name = "realizada_em")
     private ZonedDateTime realizadoEm;
 
-    public static Transacao from(TransacaoRequestDTO requestDTO, Cliente cliente) {
+    public static Transacao from(NovaTransacaoRequestDTO requestDTO, Cliente cliente) {
         Transacao transacao = new Transacao();
         transacao.cliente = cliente;
         transacao.tipo = requestDTO.getTipo();

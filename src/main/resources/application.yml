@@ -12,6 +12,9 @@ spring:
         batch_versioned_data: true
         jdbc:
           batch_size: 50
+  threads:
+    virtual:
+      enabled: true
 
 server:
   port: ${API_PORT:8080}

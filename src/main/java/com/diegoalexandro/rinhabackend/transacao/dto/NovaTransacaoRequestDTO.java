@@ -9,7 +9,7 @@ import java.math.BigInteger;
 
 @Getter
 @ToString
-public class TransacaoRequestDTO {
+public class NovaTransacaoRequestDTO {
 
     @NotNull
     @Min(1)

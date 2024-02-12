@@ -1,4 +1,4 @@
-package com.diegoalexandro.rinhabackend.cliente.repository;
+package com.diegoalexandro.rinhabackend.transacao.repository;
 
 import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;

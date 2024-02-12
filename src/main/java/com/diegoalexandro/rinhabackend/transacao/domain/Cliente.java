@@ -1,7 +1,6 @@
-package com.diegoalexandro.rinhabackend.cliente.domain;
+package com.diegoalexandro.rinhabackend.transacao.domain;
 
-import com.diegoalexandro.rinhabackend.transacao.domain.Tipo;
-import com.diegoalexandro.rinhabackend.transacao.dto.TransacaoRequestDTO;
+import com.diegoalexandro.rinhabackend.transacao.dto.NovaTransacaoRequestDTO;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -27,8 +26,8 @@ public class Cliente {
     @Column(name = "saldo")
     private BigInteger saldo;
 
-    public boolean podeTransacionar(TransacaoRequestDTO transacaoRequestDTO) {
-        BigInteger novoSaldo = calculaSaldo(transacaoRequestDTO.getTipo(), transacaoRequestDTO.getValor());
+    public boolean podeTransacionar(NovaTransacaoRequestDTO novaTransacaoRequestDTO) {
+        BigInteger novoSaldo = calculaSaldo(novaTransacaoRequestDTO.getTipo(), novaTransacaoRequestDTO.getValor());
         return novoSaldo.compareTo(limite.negate()) >= 0;
     }
 
@@ -36,7 +35,7 @@ public class Cliente {
         return tipo == Tipo.CREDITO ? saldo.add(valor) : saldo.subtract(valor);
     }
 
-    public void transaciona(TransacaoRequestDTO transacaoRequestDTO) {
-        this.saldo = calculaSaldo(transacaoRequestDTO.getTipo(), transacaoRequestDTO.getValor());
+    public void transaciona(NovaTransacaoRequestDTO novaTransacaoRequestDTO) {
+        this.saldo = calculaSaldo(novaTransacaoRequestDTO.getTipo(), novaTransacaoRequestDTO.getValor());
     }
 }

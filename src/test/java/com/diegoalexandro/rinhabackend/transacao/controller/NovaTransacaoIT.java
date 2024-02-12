@@ -21,7 +21,7 @@ import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class TransacaoControllerIT extends BaseIntegrationTest {
+class NovaTransacaoIT extends BaseIntegrationTest {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -204,8 +204,7 @@ class TransacaoControllerIT extends BaseIntegrationTest {
 
         futures.forEach(future -> {
             try {
-                MvcResult mvcResult = future.get();
-                System.out.println(mvcResult.getResponse().getStatus());
+                MvcResult unused = future.get();
             } catch (InterruptedException | ExecutionException e) {
                 throw new RuntimeException(e);
             }

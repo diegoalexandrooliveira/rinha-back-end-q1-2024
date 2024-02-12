@@ -1,6 +1,6 @@
-package com.diegoalexandro.rinhabackend.cliente.repository;
+package com.diegoalexandro.rinhabackend.transacao.repository;
 
-import com.diegoalexandro.rinhabackend.cliente.domain.Cliente;
+import com.diegoalexandro.rinhabackend.transacao.domain.Cliente;
 import org.springframework.data.repository.Repository;
 
 import java.util.Optional;
