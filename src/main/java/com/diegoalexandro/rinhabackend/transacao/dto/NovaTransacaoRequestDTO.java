@@ -5,6 +5,7 @@ import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.ToString;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 
 @Getter
@@ -13,7 +14,8 @@ public class NovaTransacaoRequestDTO {
 
     @NotNull
     @Min(1)
-    private BigInteger valor;
+    @Digits(fraction = 0, integer = Integer.MAX_VALUE)
+    private BigDecimal valor;
 
     @NotNull
     private Tipo tipo;
@@ -21,4 +23,8 @@ public class NovaTransacaoRequestDTO {
     @Size(max = 10)
     @NotEmpty
     private String descricao;
+
+    public BigInteger getValor(){
+        return BigInteger.valueOf(valor.intValue());
+    }
 }

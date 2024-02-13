@@ -41,7 +41,7 @@ public class TransacaoController {
             @PathVariable("cliente_id") Long clienteId
     ) {
         log.info("Recebendo requisição para o extrato do cliente {}", clienteId);
-        List<TransacaoClienteProjection> extratoProjection = extratoService.getExtrato(clienteId);
-        return ResponseEntity.ok(ExtratoResponseDTO.from(extratoProjection));
+        ExtratoResponseDTO extratoResponse = extratoService.getExtrato(clienteId);
+        return ResponseEntity.ok(extratoResponse);
     }
 }

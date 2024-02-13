@@ -15,7 +15,7 @@ public class Transacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "transacao_sequence")
-    @SequenceGenerator(allocationSize = 100, sequenceName = "transacao_sequence", name = "transacao_sequence")
+    @SequenceGenerator(allocationSize = 100, initialValue = 10, sequenceName = "transacao_sequence", name = "transacao_sequence")
     private Long id;
 
     @JoinColumn(name = "cliente_id")

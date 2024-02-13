@@ -59,7 +59,8 @@ class NovaTransacaoIT extends BaseIntegrationTest {
             "{\"valor\": 10, \"tipo\": \"d\", \"descricao\": null}",
             "{\"valor\": 10, \"tipo\": \"d\", \"descricao\": \"descricao muito grande\"}",
             "{\"valor\": 0, \"tipo\": \"d\", \"descricao\": \"pix\"}",
-            "{\"valor\": -1, \"tipo\": \"d\", \"descricao\": \"pix\"}"
+            "{\"valor\": -1, \"tipo\": \"d\", \"descricao\": \"pix\"}",
+            "{\"valor\": 1.2, \"tipo\": \"d\", \"descricao\": \"pix\"}"
     })
     void validation(String payload) throws Exception {
         jdbcTemplate.execute("INSERT INTO cliente (id, nome, limite, saldo) VALUES (1, 'João', 100000, 0);");
@@ -67,7 +68,7 @@ class NovaTransacaoIT extends BaseIntegrationTest {
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
                         .content(payload))
                 .andExpect(
-                        MockMvcResultMatchers.status().isBadRequest()
+                        MockMvcResultMatchers.status().isUnprocessableEntity()
                 );
     }
 

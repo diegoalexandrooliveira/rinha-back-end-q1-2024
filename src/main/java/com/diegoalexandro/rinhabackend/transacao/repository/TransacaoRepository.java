@@ -19,11 +19,11 @@ public interface TransacaoRepository extends Repository<Transacao, Long> {
                     t.descricao as descricao,
                     t.tipo as tipo,
                     t.realizada_em as realizadaEm
-            from cliente c
-                     left join transacao t on c.id = t.cliente_id
-            where c.id = ?
+            from transacao t
+                     join cliente c on c.id = t.cliente_id
+            where t.cliente_id = ?
             order by t.realizada_em desc
-            limit 10
+            limit 11
             """, nativeQuery = true)
     List<TransacaoClienteProjection> findByClienteId(Long clientId);
 }
