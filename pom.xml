@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.diegoalexandro</groupId>
-	<artifactId>rinha-back-end</artifactId>
+	<artifactId>rinha-back-end-q1-2024</artifactId>
 	<version>1.0.0</version>
-	<name>rinha-back-end</name>
-	<description>Rinha</description>
+	<name>rinha-back-end-q1-2024</name>
+	<description>Rinha Q1 2024</description>
 	<properties>
 		<java.version>21</java.version>
 	</properties>

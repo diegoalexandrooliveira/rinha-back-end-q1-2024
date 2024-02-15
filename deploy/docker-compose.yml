@@ -2,7 +2,7 @@ version: "3.5"
 
 services:
   api01:
-    image: rinha-back-end:1.0.0
+    image: diegoalexandrooliveira/rinha-back-end-q1-2024:1.0.0
     hostname: api01
     environment:
       - JDBC_URL=jdbc:postgresql://db:5432/rinha
@@ -16,7 +16,7 @@ services:
           cpus: "0.3"
           memory: "100MB"
   api02:
-    image: rinha-back-end:1.0.0
+    image: diegoalexandrooliveira/rinha-back-end-q1-2024:1.0.0
     hostname: api02
     environment:
       - JDBC_URL=jdbc:postgresql://db:5432/rinha
@@ -29,7 +29,6 @@ services:
         limits:
           cpus: "0.3"
           memory: "100MB"
-
   nginx:
     image: nginx:latest
     volumes:
@@ -44,7 +43,6 @@ services:
         limits:
           cpus: "0.1"
           memory: "10MB"
-
   db:
     image: postgres:16-alpine
     hostname: db
@@ -52,6 +50,11 @@ services:
       - POSTGRES_PASSWORD=123
       - POSTGRES_USER=admin
       - POSTGRES_DB=rinha
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d rinha -U admin" ]
+      interval: 2s
+      timeout: 3s
+      retries: 5
     deploy:
       resources:
         limits:
