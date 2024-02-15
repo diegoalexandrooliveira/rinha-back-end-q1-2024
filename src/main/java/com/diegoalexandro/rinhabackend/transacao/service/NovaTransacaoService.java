@@ -1,23 +1,21 @@
 package com.diegoalexandro.rinhabackend.transacao.service;
 
 import com.diegoalexandro.rinhabackend.transacao.domain.Cliente;
-import com.diegoalexandro.rinhabackend.transacao.repository.ClienteLockControlRepository;
-import com.diegoalexandro.rinhabackend.transacao.repository.ClienteRepository;
 import com.diegoalexandro.rinhabackend.transacao.domain.Transacao;
 import com.diegoalexandro.rinhabackend.transacao.dto.NovaTransacaoRequestDTO;
 import com.diegoalexandro.rinhabackend.transacao.exceptions.ClienteNaoExistenteException;
 import com.diegoalexandro.rinhabackend.transacao.exceptions.ClienteSemSaldoDisponivel;
+import com.diegoalexandro.rinhabackend.transacao.repository.ClienteLockControlRepository;
+import com.diegoalexandro.rinhabackend.transacao.repository.ClienteRepository;
 import com.diegoalexandro.rinhabackend.transacao.repository.TransacaoRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j
 public class NovaTransacaoService {
 
     private final ClienteRepository clienteRepository;

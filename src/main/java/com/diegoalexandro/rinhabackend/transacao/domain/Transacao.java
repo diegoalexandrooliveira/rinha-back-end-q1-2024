@@ -3,7 +3,6 @@ package com.diegoalexandro.rinhabackend.transacao.domain;
 import com.diegoalexandro.rinhabackend.transacao.dto.NovaTransacaoRequestDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
-import org.hibernate.annotations.CreationTimestamp;
 
 import java.math.BigInteger;
 import java.time.ZonedDateTime;
@@ -32,7 +31,6 @@ public class Transacao {
     @Column(name = "valor")
     private BigInteger valor;
 
-    @CreationTimestamp
     @Column(name = "realizada_em")
     private ZonedDateTime realizadoEm;
 
@@ -42,6 +40,7 @@ public class Transacao {
         transacao.tipo = requestDTO.getTipo();
         transacao.valor = requestDTO.getValor();
         transacao.descricao = requestDTO.getDescricao();
+        transacao.realizadoEm = ZonedDateTime.now();
 
         return transacao;
     }

@@ -30,6 +30,8 @@ public class ExtratoService {
         TransacaoClienteProjection referenciaSaldo = resultados.stream().findFirst().orElseThrow();
         final SaldoResponseDTO saldo = SaldoResponseDTO.from(referenciaSaldo);
 
+        // Gambiarra para poder melhorar a query, indexando a tabela transacao e fazendo join com a cliente ficou
+        // melhor que o left join, logo precisa de uma transação falsa para funcionar o join quando o cliente não tem transações
         List<TransacaoClienteProjection> resultadoFiltrado = resultados
                 .stream()
                 .filter(projecao -> projecao.getValor().compareTo(BigInteger.ZERO) > 0)
