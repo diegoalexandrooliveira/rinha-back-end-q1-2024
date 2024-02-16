@@ -15,6 +15,6 @@ mvn clean -Pnative spring-boot:build-image
 Rodar testes stress
 
 ```shell
-docker-compose -p deploy up -d
+docker compose -p deploy up -d
 ~/rinha-de-backend-2024-q1/executar-teste-local.sh 
 ```
