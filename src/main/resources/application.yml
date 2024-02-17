@@ -4,7 +4,7 @@ spring:
     password: ${DB_PASSWORD:postgres}
     username: ${DB_USERNAME:postgres}
     hikari:
-      maximum-pool-size: 10
+      maximum-pool-size: ${DB_POOL_SIZE:20}
   jpa:
     show-sql: false
     properties:
